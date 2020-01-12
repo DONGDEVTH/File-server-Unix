@@ -1,0 +1,34 @@
+[IT]
+ comment = IT
+ path = /files/it
+ browseable = yes
+ read only = no
+ valid users = itsuka
+ veto files = /.*/*.3gp/*.dat/*.avi/*.flv/*.swf/*.vob/*.mov/*.mp3/*.wma/*.mmf/*.amr/*.ogg/*.m4r/*.wav/*.aac/*.exe/*.rar/*.zip/autorun.inf/
+
+[ar]
+ comment = ar
+ path = /files/ar
+ browseable = yes
+ read only = no
+ valid users = ar
+ veto files = /.*/*.3gp/*.dat/*.avi/*.flv/*.swf/*.vob/*.mov/*.mp3/*.wma/*.mmf/*.amr/*.ogg/*.m4r/*.wav/*.aac/*.exe/*.rar/*.zip/autorun.inf/
+
+[ap]
+ comment = ap
+ path = /files/ap
+ browseable = yes
+ read only = no
+ valid users = ap
+ veto files = /.*/*.3gp/*.dat/*.avi/*.flv/*.swf/*.vob/*.mov/*.mp3/*.wma/*.mmf/*.amr/*.ogg/*.m4r/*.wav/*.aac/*.exe/*.rar/*.zip/autorun.inf/
+
+
+
+[hr]
+ comment = cost
+ path = /files/cost
+ browseable = yes
+ read only = no
+ valid users = hr watsamon
+ veto files = /.*/*.3gp/*.dat/*.avi/*.flv/*.swf/*.vob/*.mov/*.mp3/*.wma/*.mmf/*.amr/*.ogg/*.m4r/*.wav/*.aac/*.exe/*.rar/*.zip/autorun.inf/
+

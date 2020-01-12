@@ -1,0 +1,30 @@
+[data]
+path = /www/data_print
+public = yes
+writable = yes
+veto files = /*.mp3/   #  Block upload .mp3
+
+
+[Public Share_Data]
+
+   full_audit:success = connect mkdir rename open rmdir read pwrite unlink
+   create mode = 777
+   valid users = aca,aeng,ap,ar,arm,chef,cost,dtm,ehk,eng,exe,fb,fc,fom,gm,gsa1,gsa2,hk,hr,hrm,store,rsvnsup,rsvn,pur,souschef,admin,kitchen
+   full_audit:priority = notice
+   full_audit:prefix = %u|%I|%m|%S
+   veto files = /.*/*.3gp/*.dat/*.avi/*.flv/*.swf/*.vob/*.mov/*.mp3/*.wma/*.mmf/*.amr/*.ogg/*.m4r/*.wav/*.aac/*.exe/*.rar/*.zip/autorun.inf/*.jpg/
+   path = /home/DATA/Public Share Data
+   full_audit:failure = none
+   public = yes
+   full_audit:facility = local5
+   writeable = yes
+   vfs object = full_audit
+   directory mode = 777
+   comment = Public Share Data
+
+
+--------------------------------------
+
+veto files = /*.mp3/*.avi/*.mpg/
+
+

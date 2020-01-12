@@ -1,0 +1,50 @@
+----
+sudo ufw enable
+sudo ufw status verbose
+sudo ufw allow 53
+sudo ufw deny 53
+sudo ufw allow ssh
+sudo ufw allow from 192.168.1.0/24
+
+------------------------
+This is my method: Allow only
+
+Code:
+******************************************************************************************************************************************
+sudo ufw default deny incoming  
+sudo ufw default deny outgoing
+
+internet
+Code:
+
+sudo ufw allow out 53  
+sudo ufw allow out http  
+sudo ufw allow out https  
+sudo ufw allow out 8080
+
+
+gmail
+Code:
+
+sudo ufw allow proto tcp from 173.194.0.0/16 
+sudo ufw allow out to 173.194.0.0/16 port 993  
+sudo ufw allow out to 74.125.0.0/16 port 465 proto tcp
+
+hotmail
+Code:
+
+sudo ufw allow proto tcp from 207.46.0.0/16 
+sudo ufw allow out to 207.46.0.0/16 
+sudo ufw allow out to 65.52.0.0/14 port 587 proto tcp
+
+qbittorrent (I can't get transmission to work) (use peerguradian as well)
+Code:
+
+sudo ufw allow in 6969  
+sudo ufw allow out 6969
+
+I delete this rule when not in use. Peerguardian will show a barrage of attacks. I reject the port to stop it!
+Code:
+
+sudo ufw reject 6969
+

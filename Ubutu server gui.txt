@@ -1,0 +1,35 @@
+samba unix
+
+
+vi /etc/samba/smb.conf
+
+add user
+useradd office
+passwd office
+smbpasswd -a office
+
+
+
+
+Text Ubuntu
+ifconfig
+vi /etc/network
+vi /etc/network/interfaces
+
+/etc/init.d/networking restart
+apt-get update
+apt-get upgrade
+
+apt-get install openssh-server samba smbclient cifs-utils ntp ntpdate
+
+mkdir /files
+mkdir /files/public
+
+chmod 777 /files/public
+
+
+vi /etc/samba/smb.conf
+add user
+useradd office
+passwd office
+smbpasswd -a office

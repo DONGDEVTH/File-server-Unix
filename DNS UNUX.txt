@@ -1,0 +1,35 @@
+Name Resolution
+Name resolution as it relates to IP networking is the process of mapping IP addresses to hostnames, making it easier to identify resources on a network. The following section will explain how to properly configure your system for name resolution using DNS and static hostname records.
+
+DNS Client Configuration
+
+Traditionally, the file /etc/resolv.conf was a static configuration file that rarely needed to be changed or automatically changed via DCHP client hooks. Nowadays, a computer can switch from one network to another quite often and the resolvconf framework is now being used to track these changes and update the resolver's configuration automatically. It acts as an intermediary between programs that supply nameserver information and applications that need nameserver information. Resolvconf gets populated with information by a set of hook scripts related to network interface configuration. The most notable difference for the user is that any change manually done to /etc/resolv.conf will be lost as it gets overwritten each time something triggers resolvconf. Instead, resolvconf uses DHCP client hooks, and /etc/network/interfaces to generate a list of nameservers and domains to put in /etc/resolv.conf, which is now a symlink:
+
+/etc/resolv.conf -> ../run/resolvconf/resolv.conf
+To configure the resolver, add the IP addresses of the nameservers that are appropriate for your network in the file /etc/network/interfaces. You can also add an optional DNS suffix search-lists to match your network domain names. For each other valid resolv.conf configuration option, you can include, in the stanza, one line beginning with that option name with a dns- prefix. The resulting file might look like the following:
+iface eth0 inet static
+    address 192.168.3.3
+    netmask 255.255.255.0
+    gateway 192.168.3.1
+    dns-search example.com
+    dns-nameservers 192.168.3.45 192.168.8.10
+The search option can also be used with multiple domain names so that DNS queries will be appended in the order in which they are entered. For example, your network may have multiple sub-domains to search; a parent domain of example.com, and two sub-domains, sales.example.com and dev.example.com.
+
+If you have multiple domains you wish to search, your configuration might look like the following:
+
+iface eth0 inet static
+    address 192.168.3.3
+    netmask 255.255.255.0
+    gateway 192.168.3.1
+    dns-search example.com sales.example.com dev.example.com
+    dns-nameservers 192.168.3.45 192.168.8.10
+
+
+
+
+
+
+
+change name
+sudo vi /etc/hostname /etc/hosts
+

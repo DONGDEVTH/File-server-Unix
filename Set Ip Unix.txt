@@ -1,0 +1,21 @@
+Ip
+
+sudo ifdown eth0
+Static IP Address Assignment
+
+To configure your system to use a static IP address assignment, add the static method to the inet address family statement for the appropriate interface in the file /etc/network/interfaces. The example below assumes you are configuring your first Ethernet interface identified as eth0. Change the address, netmask, and gateway values to meet the requirements of your network.
+
+auto eth0
+iface eth0 inet static
+address 10.0.0.100
+netmask 255.255.255.0
+gateway 10.0.0.1
+
+
+
+By adding an interface configuration as shown above, you can manually enable the interface through the ifup command.
+
+sudo ifup eth0
+To manually disable the	interface, you can use the ifdown command.
+
+sudo ifdown eth0
